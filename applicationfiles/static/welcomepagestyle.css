@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #6cf18b; /* Bootstrap's success color */
+    color: rgb(39, 39, 8);
+    font-size: large;
+}

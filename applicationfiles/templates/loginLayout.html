@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loginstyle.css')}}" />
+    </head>
+
+    <body>
+        <img src="{{url_for('static',filename='background.jpg')}}" alt="background image" class="background-image">
+        <header>
+            <h1 class="headerText">Biljardiajanvaraus</h1>
+            <nav id="navigation">
+                <a href="{{url_for('home')}}">Koti</a>
+                <a href="{{url_for('about')}}">Tietoa</a>
+                <a href="{{url_for('contact')}}">Yhteystiedot</a>
+                <a href="{{url_for('register')}}">Registeröinti</a>
+            </nav>
+        </header>
+
+        <div class="login-container">
+            <h2>Kirjautuminen</h2>
+            <form class="login-form" action="{{url_for('login')}}" method="post">
+                <div class="form-group">
+                    <label for="username">Käyttäjänimi:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="password">Salasana:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+        
+                <div class="form-group">
+                    <button type="submit">Kirjaudu</button>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <p class="footerText">&copy; 2023 Biljardiajanvaraus versio 0.0.1</p>
+        </footer>
+    </body>
+</html>

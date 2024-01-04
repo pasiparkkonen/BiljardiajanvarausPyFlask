@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='welcomepagestyle.css')}}" />
+    <title>Tervetuloasivu</title>
+</head>
+<body>
+    <h1>Tervetuloa, {{ session['username'] }}!</h1>
+    <p><br>Sinut ohjataan pian omalle profiilisivulle.</p>
+
+    <script>
+        // Use JavaScript to redirect after a timer
+        setTimeout(function() {
+            window.location.href = "{{ url_for('profile') }}";
+        }, 5000); // Adjust the timeout as needed
+    </script>
+</body>
+</html>

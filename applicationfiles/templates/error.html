@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='errorpagestyle.css')}}" />
+</head>
+<body>
+    <div class="error-container" id="error-container">
+        <p id="error-message">Virhe on tapahtunut: {{error_message}}</p>
+    </div>
+
+    <script>
+        // Use JavaScript to add or remove 'show' class for fading effect
+        setTimeout(function() {
+            document.getElementById('error-container').classList.add('show');
+        }, 100);
+
+        setTimeout(function() {
+            document.getElementById('error-container').classList.remove('show');
+            window.location.href = "{{ redirect_url }}";  // Redirect to the specified URL
+        }, 10000); // Adjust the timeout as needed
+    </script>
+</body>
+</html>
