@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'biljardiajanvaraus'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_77938C5ED53F441B8E923259CA192496 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BECF677E04F949EBBB657F78336DD504 }}
