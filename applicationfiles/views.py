@@ -67,12 +67,12 @@ def register():
         try:
             with connection.cursor() as cursor:
                 # Check if the username and password match a record in the users table
-                cursor.execute("SELECT id FROM users WHERE username = %s", (userUsername))
+                cursor.execute("SELECT id FROM kayttajat.users WHERE username = %s", (userUsername))
                 existing_user = cursor.fetchone()
                 if existing_user:
                     return render_template('registeration.html', error='Käyttäjänimeä ei voi valita. Valitse toinen.')
                 else:
-                    cursor.execute("INSERT INTO users (username, password, role, email, user_logged_in) VALUES (%s, %s, %s, %s, FALSE)", (userUsername, userPassword, 'user', userEmail))
+                    cursor.execute("INSERT INTO kayttajat.users (username, password, role, email, user_logged_in) VALUES (%s, %s, %s, %s, FALSE)", (userUsername, userPassword, 'user', userEmail))
                     connection.commit()
                     return redirect(url_for('login'))
         except pymysql.Error as error:
@@ -102,7 +102,7 @@ def login():
         try:
             with connection.cursor() as cursor:
                 # Check if the username and password match a record in the users table
-                cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+                cursor.execute("SELECT * FROM kayttajat.users WHERE username = %s AND password = %s", (username, password))
                 user = cursor.fetchone()
                 # If the login is successful, store the user's information in the session
                 if user:
