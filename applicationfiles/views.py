@@ -98,7 +98,8 @@ def login():
         
         connection = connect_to_database(dbhost, dbuser, dbpassword, database)
         if not connection:
-            return render_template('error.html', error_message="Yhteyttä tietokantaan ei ole luotu.", redirect_url=url_for('login'))
+            error_message = "Yhteyttä tietokantaan ei ole luotu." + dbhost + " " + dbuser + " " + dbpassword + " " + database
+            return render_template('error.html', error_message, redirect_url=url_for('login'))
         try:
             with connection.cursor() as cursor:
                 # Check if the username and password match a record in the users table
